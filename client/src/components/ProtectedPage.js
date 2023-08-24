@@ -46,7 +46,7 @@ function ProtectedPage({children}) {
         <div className="flex justify-between items-center bg-primary text-white px-5 py-3">
             <div className='cursor-pointer'
             onClick={()=> navigate("/")}>
-                <h1 className="text-2xl"> Ayodhya Bloodbank</h1>
+                <h1 className="text-2xl"> Blood Guardian</h1>
                 <span className='text-xs'>
                     {currentUser.userType.toUpperCase()}
                 </span>
