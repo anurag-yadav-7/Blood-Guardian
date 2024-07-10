@@ -13,8 +13,8 @@ router.post("/add", authMiddleware, async(req,res) =>{
         // console.log("user: ",user);
         if(!user) throw new Error("Invalid Email!");
 
-        if(req.body.inventoryType ==="in" && user.userType !=="donar"){
-            throw new Error("This email is not registered as a donar");
+        if(req.body.inventoryType ==="in" && user.userType !=="donor"){
+            throw new Error("This email is not registered as a donor");
         }
 
         if(req.body.inventoryType ==="out" && user.userType !== "hospital"){
@@ -71,7 +71,7 @@ router.post("/add", authMiddleware, async(req,res) =>{
             }
             req.body.hospital = user._id;
         }else{
-            req.body.donar = user._id;
+            req.body.donor = user._id;
         }
 
         //add inventory
@@ -88,7 +88,7 @@ router.post("/add", authMiddleware, async(req,res) =>{
 //get inventory
 router.get("/get", authMiddleware, async(req,res) =>{ 
     try {
-        const inventory = await Inventory.find({organization: req.body.userId}).populate("donar").populate("hospital").sort({createdAt: -1});
+        const inventory = await Inventory.find({organization: req.body.userId}).populate("donor").populate("hospital").sort({createdAt: -1});
         return res.send({ success: true, data: inventory});
 
     } catch (error) {
@@ -102,7 +102,7 @@ router.post("/filter", authMiddleware, async(req,res) =>{
         const inventory = await Inventory.find(req.body.filters)
         .limit(req.body.limit || 10) 
         .sort({createdAt: -1})
-        .populate("donar")
+        .populate("donor")
         .populate("hospital")
         .populate("organization");  
         return res.send({ success: true, data: inventory});
