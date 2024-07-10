@@ -52,7 +52,7 @@ function Login() {
       
       <Radio.Group onChange ={(e) => setType(e.target.value)} value = {type}
       className=''>
-        <Radio value="donar">Donar</Radio>
+        <Radio value="donar">Donor</Radio>
         <Radio value="hospital">Hospital</Radio>
         <Radio value="organization">Organization</Radio>
       </Radio.Group>
