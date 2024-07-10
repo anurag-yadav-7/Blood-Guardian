@@ -30,10 +30,10 @@ function  InventoryTable({filters, userType, limit}) {
         title: 'Reference',
         dataIndex:'reference',
         render: (text,record) => {
-          // console.log("record donar: "+ record.donar);
+          // console.log("record donor: "+ record.donor);
           // console.log("record hospital: "+ record.hospital);
           if(userType === "organization"){
-            return record.inventoryType === "in" ? record.donar?.name
+            return record.inventoryType === "in" ? record.donor?.name
             : record.hospital?.hospitalName;
           }else{
             return record.organization.organizationName;
@@ -62,8 +62,8 @@ function  InventoryTable({filters, userType, limit}) {
     }
 
 
-    // change columns for donar
-    if(userType === "donar")
+    // change columns for donor
+    if(userType === "donor")
     {
       // remove inventory type column
       columns.splice(0,1);
