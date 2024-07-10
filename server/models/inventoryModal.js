@@ -25,7 +25,7 @@ const inventorySchema = new Schema({
     },
 
     // if inventory type is: "out", then hospitals will be set
-    // if inventory type is: "in", then donars will be set
+    // if inventory type is: "in", then donors will be set
 
     hospital:{
         type: Schema.Types.ObjectId,
@@ -34,7 +34,7 @@ const inventorySchema = new Schema({
             return this.inventoryType === 'out';
         },
     },
-    donar:{
+    donor:{
         type: Schema.Types.ObjectId,
         ref: 'users',
         required: function(){
