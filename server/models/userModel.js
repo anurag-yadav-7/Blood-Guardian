@@ -4,13 +4,13 @@ const userSchema = new mongoose.Schema({
     userType:{
         type: String,
         required: true,
-        enum : ['donar','organization','hospital','admin'],
+        enum : ['donor','organization','hospital','admin'],
     },
-    // is required if usertyep is donar or admin    
+    // is required if usertyep is donor or admin    
     name:{
         type: String,
         required: function(){
-            if(this.userType === 'admin' || this.userType === 'donar')
+            if(this.userType === 'admin' || this.userType === 'donor')
                 return false;
         }
     },
