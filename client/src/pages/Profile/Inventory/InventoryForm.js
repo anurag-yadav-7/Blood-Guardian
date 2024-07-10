@@ -68,7 +68,7 @@ function InventoryForm({open,setOpen,reloadData}) {
             </select>
         </Form.Item>
 
-        <Form.Item label={inventoryType ==="out" ? "Hospital Email" : "Donar Email"} name="email" rules={getAntdInputValidation()}>
+        <Form.Item label={inventoryType ==="out" ? "Hospital Email" : "donor Email"} name="email" rules={getAntdInputValidation()}>
             <Input type="email"/>
         </Form.Item>
 
