@@ -118,13 +118,13 @@ router.get("/get-current-user",authMiddleware,async (req,res) =>{
     }
 });
 
-//get all unique donars
-router.get("/get-all-donars",authMiddleware, async (req,res) =>{
+//get all unique donors
+router.get("/get-all-donors",authMiddleware, async (req,res) =>{
 
     try {
-    //get all unique donars from inventory
+    //get all unique donors from inventory
         const organization = new mongoose.Types.ObjectId(req.body.userId);
-        const uniqueDonarIds = await Inventory.aggregate([
+        const uniquedonorIds = await Inventory.aggregate([
             {
                 $match:{
                     inventoryType: "in",
@@ -133,19 +133,19 @@ router.get("/get-all-donars",authMiddleware, async (req,res) =>{
             },
             {
                 $group: {
-                    _id: "$donar",
+                    _id: "$donor",
                 },
             },
         ]);
         
-        const donars = await User.find({
-            _id: {$in: uniqueDonarIds},
+        const donors = await User.find({
+            _id: {$in: uniquedonorIds},
         });
 
         return res.send({
             success: true,
-            message: "Donars Fetched Successfully",
-            data: donars,
+            message: "donors Fetched Successfully",
+            data: donors,
         }); 
     } catch (error) {
         return res.send({
@@ -182,13 +182,13 @@ router.get('/get-all-hospitals', authMiddleware,async(req,res)=>{
         };
     });
 
-//get all unique organizations for a donar
-router.get('/get-all-organizations-for-a-donar', authMiddleware,async(req,res)=>{
+//get all unique organizations for a donor
+router.get('/get-all-organizations-for-a-donor', authMiddleware,async(req,res)=>{
     try{
         //get all unique hospital ids from inventory
-        const donar = new mongoose.Types.ObjectId(req.body.userId);
+        const donor = new mongoose.Types.ObjectId(req.body.userId);
         const uniqueOrganizationIds=await Inventory.distinct("organization",{
-            donar,
+            donor,
         });
 
         const hospitals = await User.find({
