@@ -9,7 +9,7 @@ import { getAntdInputValidation } from '../../utils/helpers';
 
 function Register() {
   const dispatch = useDispatch(true);
-  const[type, setType] = React.useState('donar');
+  const[type, setType] = React.useState('donor');
   const navigate = useNavigate();
   const onFinish = async(values)=>{
     
@@ -54,12 +54,12 @@ function Register() {
       
       <Radio.Group onChange ={(e) => setType(e.target.value)} value = {type}
       className='col-span-2'>
-        <Radio value="donar">Donor</Radio>
+        <Radio value="donor">Donor</Radio>
         <Radio value="hospital">Hospital</Radio>
         <Radio value="organization">Organization</Radio>
       </Radio.Group>
       
-      {type ==='donar' && <>
+      {type ==='donor' && <>
       {" "}  
       <Form.Item label="Name"  name='name' rules={getAntdInputValidation()} >
         <Input/>  
@@ -76,7 +76,7 @@ function Register() {
 
       </>}
 
-      {type !== 'donar' && 
+      {type !== 'donor' && 
         <OrgHospitalFormData type={type}/>
       }
 
