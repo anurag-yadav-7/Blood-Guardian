@@ -3,10 +3,10 @@ import { SetLoading } from '../../../redux/loaderSlice';
 import { GetInventory } from '../../../apicalls/inventory';
 import { useDispatch } from 'react-redux';
 import { Table, message } from 'antd';
-import { GetAllDonarsofAnOrganization } from '../../../apicalls/users';
+import { GetAlldonorsofAnOrganization } from '../../../apicalls/users';
 import { getDateFormat } from '../../../utils/helpers';
 
-function Donars() {
+function donors() {
 
     const [data,setData] = React.useState([]);
     const dispatch = useDispatch();
@@ -14,7 +14,7 @@ function Donars() {
     const getData = async()=>{
         try {
           dispatch(SetLoading(true));
-          const response = await GetAllDonarsofAnOrganization();
+          const response = await GetAlldonorsofAnOrganization();
           dispatch(SetLoading(false));
           if(response.success){
             console.log("showing response: "+ response.data);
@@ -59,4 +59,4 @@ function Donars() {
   )
 }
 
-export default Donars;
+export default donors;
