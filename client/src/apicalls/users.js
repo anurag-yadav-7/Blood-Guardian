@@ -16,16 +16,16 @@ export const GetCurrentUser = async() =>{
     return response;
 }
 
-export const GetAllDonarsofAnOrganization = ()=>{
-    return axiosInstance("get","/api/users/get-all-donars");
+export const GetAlldonorsofAnOrganization = ()=>{
+    return axiosInstance("get","/api/users/get-all-donors");
 }
 
 export const GetAllHospitalssofAnOrganization = ()=>{
     return axiosInstance("get","/api/users/get-all-hospitals");
 }
 
-export const GetAllOrganizationsOfADonar = () =>{
-    return axiosInstance('get','/api/users/get-all-organizations-for-a-donar');  
+export const GetAllOrganizationsOfAdonor = () =>{
+    return axiosInstance('get','/api/users/get-all-organizations-for-a-donor');  
     // get all organizations of a donor
 }
  
