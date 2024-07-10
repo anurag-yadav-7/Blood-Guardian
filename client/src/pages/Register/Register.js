@@ -54,7 +54,7 @@ function Register() {
       
       <Radio.Group onChange ={(e) => setType(e.target.value)} value = {type}
       className='col-span-2'>
-        <Radio value="donar">Donar</Radio>
+        <Radio value="donar">Donor</Radio>
         <Radio value="hospital">Hospital</Radio>
         <Radio value="organization">Organization</Radio>
       </Radio.Group>
